@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Slug Generator</title>
+  <title>Slug Generator - a service by Skill Academy</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -12,7 +12,8 @@
 
 <body>
   <div class="container">
-    <h3 style="font-weight: 600;"><a href="/">Slug Generator</a></h3>
+    <h3 style="font-weight: 600; padding-top: 15px;"><a href="/">Slug Generator</a></h3>
+    <hr>
 
     <div class="row">
       <div class="form-group col-md-12">
@@ -25,9 +26,17 @@
         <textarea class="form-control" name="generatedText" id="generatedText" rows="4"></textarea>
       </div>
 
+      <div class="col-md-12 text-right">
+        <button class="btn btn-default" data-clipboard-target="#generatedText"><img src="/img/clippy.svg" width="15" alt="Copy to clipboard"> Copy to clipboard</button>
+      </div>
+
       <div class="form-group col-md-12">
         <label for="generatedTextV2">Generated Text (Underscore Version)</label>
         <textarea class="form-control" name="generatedTextV2" id="generatedTextV2" rows="4"></textarea>
+      </div>
+
+      <div class="col-md-12 text-right" style="margin-bottom: 15px;">
+        <button class="btn btn-default" data-clipboard-target="#generatedTextV2"><img src="/img/clippy.svg" width="15" alt="Copy to clipboard"> Copy to clipboard</button>
       </div>
     </div>
   </div>
@@ -45,6 +54,54 @@
       $('#generatedTextV2').slugify('#inputText', {
         separator: '_'
       });
+    });
+  </script>
+
+  <script>
+    $(function() {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+    $('.btn').tooltip({
+      trigger: 'click',
+      placement: 'top'
+    });
+
+    function setTooltip(btn, message) {
+      $('.btn').tooltip('hide')
+        .attr('data-original-title', message)
+        .tooltip('show');
+    }
+
+    function hideTooltip(btn) {
+      setTimeout(function() {
+        $('.btn').tooltip('hide');
+      }, 500);
+    }
+
+    var clipboard = new Clipboard('.btn');
+
+    clipboard.on('success', function(e) {
+      setTooltip(e.trigger, 'Copied!');
+      hideTooltip(e.trigger);
+
+      console.info('Action:', e.action);
+      //console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+
+      e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+      setTooltip(e.trigger, 'Failed!');
+      hideTooltip(e.trigger);
+
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
     });
   </script>
 
