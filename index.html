@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Slug Generator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+  <link rel="stylesheet" href="/css/master.css">
+</head>
+
+<body>
+  <div class="container">
+    <h3 style="font-weight: 600;"><a href="/">Slug Generator</a></h3>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label for="inputText">Input Text</label>
+        <textarea class="form-control" name="inputText" id="inputText" rows="4"></textarea>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label for="generatedText">Generated Text (Hyphen Version)</label>
+        <textarea class="form-control" name="generatedText" id="generatedText" rows="4"></textarea>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label for="generatedTextV2">Generated Text (Underscore Version)</label>
+        <textarea class="form-control" name="generatedTextV2" id="generatedTextV2" rows="4"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/jquery-slugify@1.2.5,npm/speakingurl@14.0.1/speakingurl.min.js"></script>
+  <script>
+    jQuery(function($) {
+      $('#generatedText').slugify('#inputText');
+    });
+
+    jQuery(function($) {
+      $('#generatedTextV2').slugify('#inputText', {
+        separator: '_'
+      });
+    });
+  </script>
+
+</body>
+
+</html>
