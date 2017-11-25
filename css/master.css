@@ -1,18 +1,1 @@
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
-.container {
-  -webkit-box-shadow: 1.3px 1.3px 4px 0 rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 1.3px 1.3px 4px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 1.3px 1.3px 4px 0 rgba(0, 0, 0, 0.3);
-  background-color: #ffffff;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover, a:focus {
-  text-decoration: none;
-}
+body{font-family:'Poppins',sans-serif}a{text-decoration:none}a:hover,a:focus{text-decoration:none}
